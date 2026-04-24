@@ -19,9 +19,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'core',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
 
     # 🔥 ADD THIS (IMPORTANT FOR DEPLOYMENT)
@@ -83,3 +85,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # 🔥 ADD THIS (FOR STATIC SERVING)
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+CORS_ALLOW_ALL_ORIGINS = True
